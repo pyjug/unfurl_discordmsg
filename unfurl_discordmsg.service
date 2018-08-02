@@ -8,7 +8,7 @@ Group=ubuntu
 WorkingDirectory=/home/ubuntu/unfurl_discordmsg
 
 Environment=LANG=en_US.UTF-8
-Environment=DISCORD_BOT_KEYFILE="/home/ubuntu/pythonjp-server-gce1/unfurl_discordmsg"
+Environment=DISCORD_BOT_KEYFILE="/home/ubuntu/pythonjp-server-gce1/discordbot_unfurl"
 
 ExecStart=/home/ubuntu/.local/bin/pipenv run python -m unfurl_discordmsg
 
