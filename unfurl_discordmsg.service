@@ -1,0 +1,17 @@
+[Unit]
+Description=unfurl_discordmsg
+After=network.target
+
+[Service]
+User=ubuntu
+Group=ubuntu
+WorkingDirectory=/home/ubuntu/unfurl_discordmsg
+
+Environment=LANG=en_US.UTF-8
+Environment=DISCORD_BOT_KEYFILE="/home/ubuntu/pythonjp-server-gce1/unfurl_discordmsg"
+
+ExecStart=/home/ubuntu/.local/bin/pipenv run python -m unfurl_discordmsg
+
+[Install]
+WantedBy=multi-user.target
+
