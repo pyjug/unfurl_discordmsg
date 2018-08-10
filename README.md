@@ -35,3 +35,8 @@ $ pipenv install --three
 $ pipenv run python -m unfurl_discordmsg
 ```
 
+Permissions:
+View channels
+Send Message
+Embed Links
+Read Message History
