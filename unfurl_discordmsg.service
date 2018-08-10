@@ -3,6 +3,10 @@ Description=unfurl_discordmsg
 After=network.target
 
 [Service]
+
+Restart=always
+RuntimeMaxSec=43200
+
 User=ubuntu
 Group=ubuntu
 WorkingDirectory=/home/ubuntu/unfurl_discordmsg
@@ -10,7 +14,8 @@ WorkingDirectory=/home/ubuntu/unfurl_discordmsg
 Environment=LANG=en_US.UTF-8
 Environment=DISCORD_BOT_KEYFILE="/home/ubuntu/pythonjp-server-gce1/discordbot_unfurl"
 
-ExecStart=/home/ubuntu/.local/bin/pipenv run python -m unfurl_discordmsg
+ExecStart=/home/ubuntu/.local/bin/pipenv run python -u -m unfurl_discordmsg
+#ExecStart=/home/ubuntu/.local/share/virtualenvs/unfurl_discordmsg-vZwSdkCd/bin/python -u -m unfurl_discordmsg
 
 [Install]
 WantedBy=multi-user.target
