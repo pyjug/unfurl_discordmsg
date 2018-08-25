@@ -1,8 +1,9 @@
+import re
 import io
 import traceback
 import discord
 
-from . import quote
+from . import quote, dice
 
 client = discord.Client()
 
@@ -23,6 +24,11 @@ async def on_message(msg):
         return
 
     try:
+        if msg.content.startswith('%dice'):
+            ret = await dice.run(client, msg)
+            if ret:
+                return
+
         ret = await quote.run(client, msg)
         if ret:
             return
