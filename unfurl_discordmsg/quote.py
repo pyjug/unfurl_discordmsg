@@ -24,7 +24,7 @@ async def run(client, msg):
     for m in DISCORD_URLS.finditer(msg.content):
         if msg.server.id == m.group('server'):
             channel = msg.server.get_channel(m.group('channel'))
-            msg = await client.get_message(channel, m.group('msg'))
+            orgmsg = await client.get_message(channel, m.group('msg'))
 
-            embed = compose_embed(channel, msg)
+            embed = compose_embed(channel, orgmsg)
             await client.send_message(msg.channel, embed=embed)
