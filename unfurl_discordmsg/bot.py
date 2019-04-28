@@ -8,11 +8,10 @@ from . import quote, dice
 client = discord.Client()
 
 
-def send_exp(channel):
-    s = io.StringIO()
-    traceback.print_exc(file=s)
-    print(s.getvalue())
-    client.loop.create_task(client.send_message(channel, s.getvalue()))
+async def send_exp(channel):
+    s = traceback.format_exc()
+    print(s)
+    await channel.send(s)
 
 
 @client.event
@@ -34,7 +33,7 @@ async def on_message(msg):
             return
 
     except Exception:
-        send_exp(msg.channel)
+        await send_exp(msg.channel)
 
 
 
