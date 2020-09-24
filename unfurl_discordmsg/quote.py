@@ -15,7 +15,7 @@ def compose_embed(channel, msg):
 
 
 DISCORD_URLS = re.compile(
-    'https://discordapp.com/channels/'
+    'https://discord(app)?.com/channels/'
     r'(?P<server>[\d]{18})/(?P<channel>[\d]{18})/(?P<msg>[\d]{18})'
 )
 
